@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IonicPage, NavController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController, Platform } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -18,10 +18,14 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     public http: HttpClient,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    public platform: Platform
   ) {}
 
   ionViewDidLoad() {
+    /*if (!this.platform.is('android')) {
+      go('send', 'pageview', '/signin')
+    }*/
     let loading = this.loadingCtrl.create();
     loading.present();
 
